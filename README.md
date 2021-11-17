@@ -15,7 +15,7 @@ Examples
 ```
 Copies _./backup.txt_ to _./mybackup/folder_ with a date appended. The `--copies 6` argument ensures that only 6 of the most recent backups will be kept. 
 
-The intended idea is to add this script to `chrontab` or whatever service schedulerer of your OS. 
+The intended idea is to add this script to `chrontab` or whatever scheduler service of your OS. 
 
 ## Notes
 The default backup format is `%Y_%m_%d_[filename].bkp`. The datetime can be changed in the constants at the top of the program
