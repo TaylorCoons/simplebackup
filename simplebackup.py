@@ -34,7 +34,7 @@ def create_file_name(src):
 def transfer_file(src, dest):
     dest_path = os.path.join(dest.resolve(), create_file_name(src))
     if src.is_dir():
-        if src.exists():
+        if pathlib.Path(dest_path).exists():
             shutil.rmtree(dest_path)
         shutil.copytree(src.resolve(), dest_path)
     else:
@@ -99,7 +99,7 @@ def main():
         sys.exit(1)
     # Cleanup extra backups
     try:
-        cleanup_backups(args.src, args.dest, args.count)
+        cleanup_backups(args.src, args.dest, args.copies)
     except IOError as e:
         logger.error(f'unable to cleanup backups, {e}')
         sys.exit(1)
